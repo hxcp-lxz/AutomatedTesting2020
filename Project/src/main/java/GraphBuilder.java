@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class GraphBuilder {
+    
     public static void generateScope(ArrayList<String> src, ArrayList<String> test, HashMap<String ,ClassNode> classNodes, HashMap<String,MethodNode> methodNodes) throws IOException, InvalidClassFileException, ClassHierarchyException, CancelException {
         AnalysisScope scope = AnalysisScopeReader.readJavaScope("scope.txt", new File("exclusion.txt"), ClassLoader.getSystemClassLoader());
         for (String path : src) {

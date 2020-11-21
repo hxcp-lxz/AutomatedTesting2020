@@ -60,6 +60,13 @@ public class FileUnit {
             System.out.println("target文件不存在");
         }
     }
+
+    /**
+     * 读取changeInfo
+     * @param path
+     * @param info
+     * @throws IOException
+     */
     public static void readChange(String path,ArrayList<String> info) throws IOException {
         BufferedReader fileReader;
         String changeInfo;
@@ -69,6 +76,11 @@ public class FileUnit {
         }
     }
 
+    /**
+     * 用于写入dot文件t、xt文件
+     * @param path
+     * @param content
+     */
     public static void writeFile(String path,String content){
         try {
             FileWriter writer = new FileWriter(path);

@@ -19,10 +19,10 @@ public class DealChangeInfo {
                 if(type) {
                     ClassNode node = classNodeHashMap.getOrDefault(str.split(" ")[0], null);
                     if (node != null) {
-                        dfsClass(storeClass,node);
+                        dfsClass(storeClass,node);//找出所有相关的class节点
                         for(Map.Entry<String,ClassNode> entryOut:storeClass.entrySet()) {
                             for (Map.Entry<String, MethodNode> entry : entryOut.getValue().Methods.entrySet()) {
-                                dfsMethod(check, storeMethod, entry.getValue(), testMethodNodeHashMap);
+                                dfsMethod(check, storeMethod, entry.getValue(), testMethodNodeHashMap);//读取所有class节点的method
                             }
                         }
                     }
@@ -44,6 +44,7 @@ public class DealChangeInfo {
             FileUnit.writeFile(type?"selection-class.txt":"selection-method.txt",result.toString());
         return storeMethod;
     }
+    //深搜所有相关的class
     public static void dfsClass(HashMap<String,ClassNode> storeClass,ClassNode classNode){
         if(storeClass.containsKey(classNode.classInnerName)){
             return;
@@ -55,6 +56,7 @@ public class DealChangeInfo {
             }
         }
     }
+    //深搜所有相关的method
     public static void dfsMethod(HashSet<String> check,HashSet<String> store, MethodNode methodNode, HashMap<String, MethodNode> testMethodNodeHashMap){
         if(check.contains(methodNode.totalMethodName)){
             return;
