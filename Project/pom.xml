@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nju.se.mjh</groupId>
+    <artifactId>Project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.ibm.wala/com.ibm.wala.util -->
+        <dependency>
+            <groupId>com.ibm.wala</groupId>
+            <artifactId>com.ibm.wala.util</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.ibm.wala/com.ibm.wala.shrike -->
+        <dependency>
+            <groupId>com.ibm.wala</groupId>
+            <artifactId>com.ibm.wala.shrike</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.ibm.wala/com.ibm.wala.core -->
+        <dependency>
+            <groupId>com.ibm.wala</groupId>
+            <artifactId>com.ibm.wala.core</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+                <version>3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <useUniqueVersions>false</useUniqueVersions>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>CentralNode</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <version>2.4</version>
+            </plugin>
+        </plugins>
+        <finalName>testSelection</finalName>
+    </build>
+
+</project>
